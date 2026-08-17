@@ -39,7 +39,7 @@ const rows=[{"flower": "Duyên Định Cầu Ô Thước", "grade": "Đỏ", "me
 let selectedGrade="";
 const norm=s=>s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").replace(/Đ/g,"D").toLowerCase();
 const clean=s=>s.toLowerCase().trim();
-const hasVietnameseMarks=s=>clean(s)!==norm(s);
+const hasVietnameseMarks=s=>/[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i.test(s);
 const matchesSearch=(flower,query)=>{
  const q=clean(query);
  if(!q)return true;
