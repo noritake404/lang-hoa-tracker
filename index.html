@@ -56,6 +56,12 @@ const toneOfChar=ch=>{
  return "";
 };
 const hasTone=s=>[...s].some(ch=>toneOfChar(ch)!=="");
+const map=new Map();
+for(const r of rows){
+ if(!map.has(r.flower)) map.set(r.flower,{flower:r.flower,grade:r.grade,members:[]});
+ const x=map.get(r.flower); if(!x.members.includes(r.member))x.members.push(r.member);
+}
+
 const accentedToneMatch=(flower,q)=>{
  const qb=norm(q);
  const qchars=[...q];
